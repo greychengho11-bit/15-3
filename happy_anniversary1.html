@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1 Month Anniversary</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+}
+
+/* floating hearts */
+
+.heart{
+position:fixed;
+font-size:20px;
+animation:float 8s linear infinite;
+opacity:.7;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh) scale(.5)}
+100%{transform:translateY(-10vh) scale(1.2)}
+}
+
+/* stars */
+
+.star{
+position:fixed;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+from{opacity:.2}
+to{opacity:1}
+}
+
+/* glass card */
+
+.card{
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(15px);
+padding:40px;
+border-radius:20px;
+width:320px;
+text-align:center;
+box-shadow:0 10px 40px rgba(0,0,0,.2);
+animation:fade 1.5s;
+}
+
+@keyframes fade{
+from{opacity:0; transform:translateY(20px)}
+to{opacity:1; transform:translateY(0)}
+}
+
+h1{
+font-family:'Playfair Display',serif;
+margin-bottom:10px;
+}
+
+/* inputs */
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:10px;
+outline:none;
+}
+
+/* button */
+
+button{
+margin-top:10px;
+padding:12px 20px;
+border:none;
+border-radius:20px;
+background:white;
+color:#ff4f7a;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.08);
+box-shadow:0 0 15px rgba(255,255,255,.7);
+}
+
+/* main page */
+
+#main{
+display:none;
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+overflow-y:auto;
+padding:40px;
+text-align:center;
+}
+
+.container{
+max-width:700px;
+margin:auto;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(15px);
+padding:40px;
+border-radius:25px;
+box-shadow:0 10px 40px rgba(0,0,0,.3);
+}
+
+.title{
+font-size:40px;
+margin-bottom:10px;
+text-shadow:0 0 10px rgba(255,255,255,.9);
+}
+
+.subtitle{
+opacity:.9;
+margin-bottom:25px;
+}
+
+.message{
+margin:12px 0;
+font-size:17px;
+}
+
+.list{
+margin-top:25px;
+}
+
+.list p{
+margin:6px 0;
+}
+
+.loveBtn{
+margin-top:30px;
+padding:14px 30px;
+font-size:16px;
+border-radius:30px;
+}
+
+.loveMessage{
+margin-top:20px;
+font-size:20px;
+display:none;
+animation:fade 1s;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- login -->
+<div class="card" id="login">
+<h1>Welcome 💗</h1>
+<p>login dulu yaa</p>
+
+<input id="user" placeholder="Username">
+<input id="pass" placeholder="Password" type="password">
+
+<button onclick="login()">Login</button>
+
+<p id="error" style="margin-top:10px"></p>
+</div>
+
+
+<!-- main page -->
+<div id="main">
+
+<div class="container">
+
+<h1 class="title">Happy 1 Month Anniversary 💗</h1>
+
+<p class="subtitle">
+1 bulan mungkin kedengarannya kecil bagi dunia,
+tapi buat aku itu 30 hari penuh bahagia bareng kamu.
+</p>
+
+<div class="message">
+aku ga nyangka ya, dari sekadar kenal… sekarang kamu jadi rumah paling nyaman buat aku.
+</div>
+
+<div class="message">
+1 bulan sama kamu rasanya kayak speedrun bahagia.
+</div>
+
+<div class="message">
+thank you udah hadir dan bikin hidup aku lebih berwarna.
+</div>
+
+<div class="message">
+kamu bukan cuma pacar aku, tapi juga best friend, safe place, dan favorit aku setiap hari.
+</div>
+
+<div class="message">
+kalau waktu bisa aku pause, aku bakal pause di semua momen kita.
+</div>
+
+<div class="list">
+<h3>Little Things I Love About You</h3>
+<p>♡ cara kamu ketawa</p>
+<p>♡ cara kamu peduli</p>
+<p>♡ cara kamu selalu ada</p>
+<p>♡ cara kamu bikin hari aku jadi lebih ringan</p>
+</div>
+
+<button class="loveBtn" onclick="showLove()">Click this 💌</button>
+
+<div class="loveMessage" id="loveText">
+I love you more than yesterday, but less than tomorrow.
+</div>
+
+</div>
+</div>
+
+<!-- music -->
+<audio autoplay loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=romantic-love-ambient-110856.mp3">
+</audio>
+
+<script>
+
+/* login */
+
+function login(){
+
+let u=document.getElementById("user").value
+let p=document.getElementById("pass").value
+
+if(u==="JESEN" && p==="ALDY GEOL"){
+
+document.getElementById("login").style.display="none"
+document.getElementById("main").style.display="block"
+
+}else{
+
+document.getElementById("error").innerText="ihh salah, kamu bukan orang spesialku 😤"
+
+}
+
+}
+
+/* show love message */
+
+function showLove(){
+document.getElementById("loveText").style.display="block"
+}
+
+/* floating hearts */
+
+setInterval(()=>{
+
+let heart=document.createElement("div")
+heart.className="heart"
+heart.innerHTML="💗"
+heart.style.left=Math.random()*100+"vw"
+heart.style.fontSize=(20+Math.random()*20)+"px"
+
+document.body.appendChild(heart)
+
+setTimeout(()=>heart.remove(),8000)
+
+},500)
+
+/* stars */
+
+for(let i=0;i<40;i++){
+
+let star=document.createElement("div")
+star.className="star"
+
+star.style.left=Math.random()*100+"vw"
+star.style.top=Math.random()*100+"vh"
+
+document.body.appendChild(star)
+
+}
+
+</script>
+
+</body>
+</html>
